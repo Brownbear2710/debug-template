@@ -61,5 +61,5 @@ The following types are supported where `T`, `K` and `V` can be replaced with wi
 23. string
 24. array<T>
 25. vector<T>
-26. Any datatype<T> that supports range-based for loop and has .size() member function.
+26. Any datatype<T> that supports range-based for loop & has .size() member function.
 ```

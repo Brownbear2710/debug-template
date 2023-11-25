@@ -6,7 +6,7 @@ A `C++` header file to easily print the varibles with one function.
 
 ## How to use
 download the `Dbug.h` file and place it in the desired folder. Include `Dbug.h` in file where you want to use it. If you want to print a variable `v`, write `dbg(v)` where you want to print it. <br>
-Sample Code:<br>
+<b>Sample Code:</b><br>
 
 ```cpp
 #include<bits/stdc++.h>
@@ -27,7 +27,7 @@ int main()
 }
 ```
 
-Output:<br>
+<b>Output:</b><br>
 
 ```txt
 Line 8:

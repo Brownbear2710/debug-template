@@ -24,13 +24,27 @@ void setTextColor(Color color)
 void show_val(string s) { cerr << "\"" << s << "\""; }
 void show_val(char c) { cerr << "\'" << c << "\'"; }
 void show_val(int i) { cerr << i; }
+void show_val(unsigned int i) { cerr << i; }
+void show_val(double i) { cerr << i; }
+void show_val(float i) { cerr << i; }
+void show_val(long double i) { cerr << i; }
 void show_val(long long i) { cerr << i; }
 void show_val(unsigned long long i) { cerr << i; }
+void show_val(const char * p) {string s = p;show_val(s);}
+void show_val(char * p) {string s = p;show_val(s);}
 template<typename T, typename V> void show_val(pair<T,V> p);
 template<typename T> void show_val(stack<T> q);
 template<typename T> void show_val(queue<T> q);
+template <size_t N> void show_val(const int (&t)[N]);
 template<typename T> void show_val(T t);
 template<class... Args> void show_val(const std::tuple<Args...>& t);
+template<typename T> void show_val(complex<T> c);
+template<typename T> void show_val(priority_queue<T> q);
+
+//!Complex
+template<typename T>
+void show_val(complex<T> c)
+{cerr << "{"; show_val(c.real());cerr << ", ";show_val(c.imag());cerr << "}";}
 
 //!Tuple
 template<class Tuple, std::size_t N>
@@ -44,7 +58,12 @@ void show_val(const std::tuple<Args...>& t)
 { cerr << "{"; TuplePrinter<decltype(t), sizeof...(Args)>::print(t); cerr << "}";}
 
 //!Range based
-template<typename T> void show_val(T t)
+template <size_t N>
+void show_val(const int (&t)[N])
+{ cerr << "{"; for(int i = 0;i < N; i++) {show_val(t[i]);if(i+1 < N) cerr << ", ";} cerr << "}"; }
+
+template<typename T>
+void show_val(T t)
 { cerr << "{"; int f = t.size(); for(auto &x : t) {show_val(x); if(--f) cerr << ", ";} cerr << "}";}
 
 //!Pair
@@ -66,10 +85,14 @@ void show_val(stack<T> q) {
     for(;q.size();) { show_val(q.top()); q.pop(); if(q.size()) cerr << ", "; }
     cout << "}" << endl;
 }
+//! Priority Queue
+template<typename T>
+void show_val(priority_queue<T> q)
+{cerr << "{";for(;q.size();) { show_val(q.top()); q.pop(); if(q.size()) cerr << ", "; } cout << "}";}
 
 void dbo(string s) {}
 template<typename T, typename... Args>
-void dbo(string s,T t, Args... args)
+void dbo(string s,T &t, Args&... args)
 {
     auto it = remove(s.begin(), s.end(), ' ');
     s.erase(it, s.end());
@@ -79,7 +102,6 @@ void dbo(string s,T t, Args... args)
     cerr << endl;
     if(sizeof...(args)) dbo(s, args...);
 }
-
 
 #ifdef debug_header
 #define dbg(x...) setTextColor(RED); cerr << "Line " << __LINE__ << ":" << endl; setTextColor(WHITE); dbo(#x, x);

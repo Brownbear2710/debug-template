@@ -71,5 +71,5 @@ The following types are supported where `T`, `K` and `V` can be replaced with wi
 23. string
 24. array<T>
 25. vector<T>
-26. Any datatype<T> that supports range-based for loop.
+26. Any datatype<T> that supports foreach loop.
 ```

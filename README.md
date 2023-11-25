@@ -17,6 +17,12 @@ int main()
     vector<int> v = {1,2,3,1,9};
     int n = 2;
     dbg(v, n);
+
+    char c = 'a';
+    string s = "Hello world";
+    vector<pair<int,int>> vp = {{1,2}, {3,4}, {5,6}};
+    dbg(c,s,vp);
+    
     return 0;
 }
 ```
@@ -24,9 +30,13 @@ int main()
 Output:<br>
 
 ```txt
-Line 7:
+Line 8:
         v = {1, 2, 3, 1, 9}
         n = 2
+Line 13:
+        c = 'a'
+        s = "Hello world"
+        vp = {{1, 2}, {3, 4}, {5, 6}}
 ```
 
 > Note: `dbg(...)` supports variable number of arguments. Some classes might not be supported. It does not support custom class and structure.<br>

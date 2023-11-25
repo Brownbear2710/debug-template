@@ -87,32 +87,3 @@ void dbo(string s,T t, Args... args)
 #else
 #define dbg(x...)
 #endif
-
-// int main()
-// {
-//     // int i;
-//     // cin >> i;
-//     // queue<int> q1;
-//     // q1.push(i);
-//     // q1.push(3);
-//     // q1.push(10);
-//     // q1.push(8);
-//     // queue<int> q2 = q1;
-//     // pair<queue<int>, queue<int>> qq = {q1,q2};
-//     // // db(qq);
-//     // // show_val(qq);
-
-//     // vector< pair< queue<int>, queue<int> > > v = {qq,qq};
-//     // db(qq,v);
-//     // set<long long> st;
-//     // st.insert(1);
-//     // st.insert(2);
-//     // st.insert(3);
-//     // db(st);
-//     tuple<tuple<int,int>, pair<int,int>, char> t = {{1,2},{3,4},'a'};
-//     tuple<int,int,int> tpl = {1,2,3};
-//     const int sz = tuple_size<decltype(tpl)>::value-1;
-//     // cout << sz;
-//     dbg(tpl,t);
-//     return 0;
-// }

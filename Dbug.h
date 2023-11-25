@@ -64,7 +64,7 @@ void show_val(const int (&t)[N])
 
 template<typename T>
 void show_val(T t)
-{ cerr << "{"; int f = t.size(); for(auto &x : t) {show_val(x); if(--f) cerr << ", ";} cerr << "}";}
+{ cerr << "{"; bool f = false; for(auto &x : t) {if(f) cerr << ", "; f = true; show_val(x);} cerr << "}"; }
 
 //!Pair
 template<typename T, typename V>

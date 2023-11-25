@@ -72,5 +72,6 @@ The following types are supported where `T`, `K` and `V` can be replaced with wi
 24. array<T>
 25. vector<T>
 26. valarray<T>
+27. pair<T1,T2>
 + Any datatype<T> that supports foreach loop.
 ```

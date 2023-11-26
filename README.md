@@ -55,7 +55,7 @@ The following types are supported where `T`, `K` and `V` can be replaced with wi
 7. float
 8. char
 9. const char []
-10. const int []
+10. const T []
 11. set<T>
 12. multiset<T>
 13. map<K,V>

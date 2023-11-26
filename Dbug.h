@@ -7,13 +7,13 @@ using ll = long long;
 
 #ifdef _WIN32
 #include <windows.h>    // for win32 API functions
-enum Color { BLACK, GREY = 8, BLUE , GREEN, CYAN, RED, PURPLE, LIGHT_YELLOW, WHITE };
+enum Color { BLACK, RESET = 7, GREY = 8, BLUE , GREEN, CYAN, RED, PURPLE, LIGHT_YELLOW, WHITE};
 void setTextColor(Color color)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
 #else // For Linux
-enum Color { RED = 31, GREEN, BLUE = 34, WHITE = 37 };
+enum Color { RED = 31, GREEN, BLUE = 34, RESET = 37, WHITE = 97 };
 void setTextColor(Color color)
 {
     string s = "\033[0;" + to_string(color) + "m";
@@ -104,7 +104,8 @@ void dbo(string s,T &t, Args&... args)
 }
 
 #ifdef debug_header
-#define dbg(x...) setTextColor(RED); cerr << "Line " << __LINE__ << ":" << endl; setTextColor(WHITE); dbo(#x, x);
+#define dbg(x...) setTextColor(GREEN); cerr << "Line " << __LINE__ << ":" << endl; setTextColor(WHITE);\
+                  dbo(#x, x); setTextColor(RESET);
 #else
 #define dbg(x...)
 #endif

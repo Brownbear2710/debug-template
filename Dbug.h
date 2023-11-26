@@ -45,7 +45,7 @@ void show_val(stack<T> q);
 template <typename T>
 void show_val(queue<T> q);
 template <typename T, size_t N>
-void show_val(const int (&t)[N]);
+void show_val(const T (&t)[N]);
 template <typename T>
 void show_val(T t);
 template <typename... Args>

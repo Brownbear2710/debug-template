@@ -37,7 +37,7 @@ template<typename T> void show_val(stack<T> q);
 template<typename T> void show_val(queue<T> q);
 template <typename T, size_t N> void show_val(const int (&t)[N]);
 template<typename T> void show_val(T t);
-template<class... Args> void show_val(const std::tuple<Args...>& t);
+template<typename... Args> void show_val(const std::tuple<Args...>& t);
 template<typename T> void show_val(complex<T> c);
 template<typename T> void show_val(priority_queue<T> q);
 
@@ -47,13 +47,13 @@ void show_val(complex<T> c)
 {cerr << "{"; show_val(c.real());cerr << ", ";show_val(c.imag());cerr << "}";}
 
 //!Tuple
-template<class Tuple, std::size_t N>
+template<typename Tuple, std::size_t N>
 struct TuplePrinter {
     static void print(Tuple t) {TuplePrinter<Tuple, N-1>::print(t);std::cout << ", ";show_val(get<N-1>(t));}
 };
-template<class Tuple>
+template<typename Tuple>
 struct TuplePrinter<Tuple, 1> {static void print(const Tuple& t) { show_val(get<0>(t)); }};
-template<class... Args>
+template<typename... Args>
 void show_val(const std::tuple<Args...>& t) 
 { cerr << "{"; TuplePrinter<decltype(t), sizeof...(Args)>::print(t); cerr << "}";}
 

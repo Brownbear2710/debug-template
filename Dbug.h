@@ -35,7 +35,7 @@ void show_val(char * p) {string s = p;show_val(s);}
 template<typename T, typename V> void show_val(pair<T,V> p);
 template<typename T> void show_val(stack<T> q);
 template<typename T> void show_val(queue<T> q);
-template <size_t N> void show_val(const int (&t)[N]);
+template <typename T, size_t N> void show_val(const int (&t)[N]);
 template<typename T> void show_val(T t);
 template<class... Args> void show_val(const std::tuple<Args...>& t);
 template<typename T> void show_val(complex<T> c);
@@ -58,8 +58,8 @@ void show_val(const std::tuple<Args...>& t)
 { cerr << "{"; TuplePrinter<decltype(t), sizeof...(Args)>::print(t); cerr << "}";}
 
 //!Range based
-template <size_t N>
-void show_val(const int (&t)[N])
+template <typename T, size_t N>
+void show_val(const T (&t)[N])
 { cerr << "{"; for(int i = 0;i < N; i++) {show_val(t[i]);if(i+1 < N) cerr << ", ";} cerr << "}"; }
 
 template<typename T>

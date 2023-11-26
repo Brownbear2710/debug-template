@@ -2,10 +2,10 @@
 
 ## Description
 
-A `C++` header file to easily print the varibles with one function.
+A `C++` header file to easily print the variables with one function.
 
 ## How to use
-download the `Dbug.h` file and place it in the desired folder. Include `Dbug.h` in file where you want to use it. If you want to print a variable `v`, write `dbg(v)` where you want to print it. <br>
+download the `Dbug.h` file and place it in the desired folder. Include `Dbug.h` in the file where you want to use it. If you want to print a variable `v`, write `dbg(v)` where you want to print it. <br>
 <b>Sample Code:</b><br>
 
 ```cpp
@@ -43,7 +43,7 @@ Line 13:
 
 ## Supported Types
 
-The following types are supported where `T`, `K` and `V` can be replaced with with any other supported type<br>
+The following types are supported where `T`, `K` and `V` can be replaced with any other supported type<br>
 
 ```cpp
 1. int

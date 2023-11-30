@@ -75,5 +75,5 @@ The following types are supported where `T`, `K` and `V` can be replaced with an
 27. pair<T1,T2>
 + Any datatype<T> that supports foreach loop.
 ```
-## Issue
-Does not support numbers as rvalue. To print the numbers simply keep it in a variable, then print it.
+## Issues
+None till now.

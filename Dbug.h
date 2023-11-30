@@ -188,6 +188,18 @@ void dbo(string s, T &t, Args &...args)
     if (sizeof...(args))
         dbo(s, args...);
 }
+template <typename T, typename... Args>
+void dbo(string s, T &&t, Args &&...args)
+{
+    auto it = remove(s.begin(), s.end(), ' ');
+    s.erase(it, s.end());
+    cerr << "\t" << s.substr(0, s.find(',')) << " = ";
+    s = s.substr(s.find(',') + 1);
+    show_val(t);
+    cerr << endl;
+    if (sizeof...(args))
+        dbo(s, args...);
+}
 
 #ifdef debug_header
 #define dbg(x...)                               \

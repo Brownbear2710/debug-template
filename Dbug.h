@@ -196,8 +196,9 @@ void dbo(string s, T &t, Args &...args)
 {
     auto it = remove(s.begin(), s.end(), ' ');
     s.erase(it, s.end());
-    cerr << "\t" << s.substr(0, s.find(',')) << " = ";
-    s = s.substr(s.find(',') + 1);
+    int c_pos = extract_comma_after_first_variable(s);
+    cerr << "\t" << s.substr(0, c_pos) << " = ";
+    s = s.substr(c_pos + (c_pos < s.size()));
     show_val(t);
     cerr << endl;
     if (sizeof...(args))
@@ -208,8 +209,9 @@ void dbo(string s, T &&t, Args &&...args)
 {
     auto it = remove(s.begin(), s.end(), ' ');
     s.erase(it, s.end());
-    cerr << "\t" << s.substr(0, s.find(',')) << " = ";
-    s = s.substr(s.find(',') + 1);
+    int c_pos = extract_comma_after_first_variable(s);
+    cerr << "\t" << s.substr(0, c_pos) << " = ";
+    s = s.substr(c_pos + (c_pos < s.size()));
     show_val(t);
     cerr << endl;
     if (sizeof...(args))

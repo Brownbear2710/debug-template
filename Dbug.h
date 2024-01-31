@@ -175,6 +175,20 @@ void show_val(priority_queue<T> q)
     cout << "}";
 }
 
+int extract_comma_after_first_variable(string s)
+{
+    stack<char> stk;
+    int i = 0;
+    while(i < s.size())
+    {
+        if(stk.empty() and s[i] == ',') return i;
+        if(s[i] == '(' or s[i] == '{' or s[i] == '[') stk.push(s[i]);
+        if(s[i] == ')' or s[i] == '}' or s[i] == ']') stk.pop();
+        i++;
+    }
+    return i;
+}
+
 //! dbg
 void dbo(string s) {}
 template <typename T, typename... Args>

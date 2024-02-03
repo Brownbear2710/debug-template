@@ -158,7 +158,7 @@ void show_val(stack<T> q)
         if (q.size())
             cerr << ", ";
     }
-    cout << "}" << endl;
+    cout << "}";
 }
 //! Priority Queue
 template <typename T>

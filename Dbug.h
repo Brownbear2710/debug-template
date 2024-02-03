@@ -96,7 +96,7 @@ template <typename T, size_t N>
 void show_val(const T (&t)[N])
 {
     cerr << "{";
-    for (int i = 0; i < N; i++)
+    for (size_t i = 0; i < N; i++)
     {
         show_val(t[i]);
         if (i + 1 < N)

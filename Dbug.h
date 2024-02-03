@@ -179,7 +179,7 @@ int extract_comma_after_first_variable(string s)
 {
     stack<char> stk;
     int i = 0;
-    while(i < s.size())
+    while(i < (int)s.size())
     {
         if(stk.empty() and s[i] == ',') return i;
         if(s[i] == '(' or s[i] == '{' or s[i] == '[') stk.push(s[i]);
@@ -190,7 +190,7 @@ int extract_comma_after_first_variable(string s)
 }
 
 //! dbg
-void dbo(string s) {}
+void dbo(string s) {s = s;// Getting rid of warnings}
 template <typename T, typename... Args>
 void dbo(string s, T &t, Args &...args)
 {
@@ -198,7 +198,7 @@ void dbo(string s, T &t, Args &...args)
     s.erase(it, s.end());
     int c_pos = extract_comma_after_first_variable(s);
     cerr << "\t" << s.substr(0, c_pos) << " = ";
-    s = s.substr(c_pos + (c_pos < s.size()));
+    s = s.substr(c_pos + (c_pos < (int)s.size()));
     show_val(t);
     cerr << endl;
     if (sizeof...(args))
@@ -211,7 +211,7 @@ void dbo(string s, T &&t, Args &&...args)
     s.erase(it, s.end());
     int c_pos = extract_comma_after_first_variable(s);
     cerr << "\t" << s.substr(0, c_pos) << " = ";
-    s = s.substr(c_pos + (c_pos < s.size()));
+    s = s.substr(c_pos + (c_pos < (int)s.size()));
     show_val(t);
     cerr << endl;
     if (sizeof...(args))

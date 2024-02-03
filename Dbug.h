@@ -18,7 +18,7 @@ void setTextColor(Color color)
 #else // For Linux
 enum Color
 {
-    RED = 31, GREEN, BLUE = 34, RESET = 37, WHITE = 97
+    RED = 31, GREEN, BLUE = 34, RESET = 37, CYAN= 96, WHITE = 97
 };
 void setTextColor(Color color)
 {
@@ -197,7 +197,10 @@ void dbo(string s, T &t, Args &...args)
     auto it = remove(s.begin(), s.end(), ' ');
     s.erase(it, s.end());
     int c_pos = extract_comma_after_first_variable(s);
-    cerr << "\t" << s.substr(0, c_pos) << " = ";
+    setTextColor(CYAN);
+    cerr << "\t" << s.substr(0, c_pos);
+    setTextColor(WHITE);
+    cout << " = ";
     s = s.substr(c_pos + (c_pos < (int)s.size()));
     show_val(t);
     cerr << endl;
@@ -210,7 +213,10 @@ void dbo(string s, T &&t, Args &&...args)
     auto it = remove(s.begin(), s.end(), ' ');
     s.erase(it, s.end());
     int c_pos = extract_comma_after_first_variable(s);
-    cerr << "\t" << s.substr(0, c_pos) << " = ";
+    setTextColor(CYAN);
+    cerr << "\t" << s.substr(0, c_pos);
+    setTextColor(WHITE);
+    cout << " = ";
     s = s.substr(c_pos + (c_pos < (int)s.size()));
     show_val(t);
     cerr << endl;

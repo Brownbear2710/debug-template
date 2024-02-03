@@ -200,7 +200,7 @@ void dbo(string s, T &t, Args &...args)
     setTextColor(CYAN);
     cerr << "\t" << s.substr(0, c_pos);
     setTextColor(WHITE);
-    cout << " = ";
+    cerr << " = ";
     s = s.substr(c_pos + (c_pos < (int)s.size()));
     show_val(t);
     cerr << endl;
@@ -216,7 +216,7 @@ void dbo(string s, T &&t, Args &&...args)
     setTextColor(CYAN);
     cerr << "\t" << s.substr(0, c_pos);
     setTextColor(WHITE);
-    cout << " = ";
+    cerr << " = ";
     s = s.substr(c_pos + (c_pos < (int)s.size()));
     show_val(t);
     cerr << endl;

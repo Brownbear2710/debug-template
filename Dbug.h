@@ -79,7 +79,7 @@ void show_val(array<T,N> t);
 template <typename T>
 void show_val(valarray<T> t);
 template<class T>
-void show_val(tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> t)
+void show_val(tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> t);
 
 //! Complex
 template <typename T>

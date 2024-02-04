@@ -381,12 +381,12 @@ void dbo(string s, T &&t, Args &&...args)
 }
 
 #ifdef debug_header
-#define dbg(x...)                               \
+#define dbg(_param...)                               \
     {setTextColor(GREEN);                        \
     cerr << "Line " << __LINE__ << ":" << endl; \
     setTextColor(WHITE);                        \
-    dbo(#x, x);                                 \
+    dbo(#_param, _param);                                 \
     setTextColor(RESET);}
 #else
-#define dbg(x...)
+#define dbg(_param...)
 #endif

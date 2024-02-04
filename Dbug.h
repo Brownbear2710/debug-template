@@ -55,6 +55,26 @@ template <typename T>
 void show_val(complex<T> c);
 template <typename T>
 void show_val(priority_queue<T> q);
+template <typename T>
+void show_val(set<T> t);
+template <typename T>
+void show_val(unordered_set<T> t);
+template <typename T>
+void show_val(multiset<T> t);
+template <typename K, typename V>
+void show_val(map<K, V> t);
+template <typename K, typename V>
+void show_val(multimap<K, V> t);
+template <typename K, typename V>
+void show_val(unordered_map<K, V> t);
+template <typename T>
+void show_val(deque<T> t);
+template <typename T>
+void show_val(vector<T> t);
+template <typename T, size_t N>
+void show_val(array<T,N> t);
+template <typename T>
+void show_val(valarray<T> t);
 
 //! Complex
 template <typename T>
@@ -104,9 +124,135 @@ void show_val(const T (&t)[N])
     }
     cerr << "}";
 }
-
+//! "foreach" loop
 template <typename T>
-void show_val(T t)
+void show_val(set<T> t)
+{
+    cerr << "{";
+    bool f = false;
+    for (auto &x : t)
+    {
+        if (f)
+            cerr << ", ";
+        f = true;
+        show_val(x);
+    }
+    cerr << "}";
+}
+template <typename T>
+void show_val(unordered_set<T> t)
+{
+    cerr << "{";
+    bool f = false;
+    for (auto &x : t)
+    {
+        if (f)
+            cerr << ", ";
+        f = true;
+        show_val(x);
+    }
+    cerr << "}";
+}
+template <typename T>
+void show_val(multiset<T> t)
+{
+    cerr << "{";
+    bool f = false;
+    for (auto &x : t)
+    {
+        if (f)
+            cerr << ", ";
+        f = true;
+        show_val(x);
+    }
+    cerr << "}";
+}
+template <typename K, typename V>
+void show_val(map<K, V> t)
+{
+    cerr << "{";
+    bool f = false;
+    for (auto &x : t)
+    {
+        if (f)
+            cerr << ", ";
+        f = true;
+        show_val(x);
+    }
+    cerr << "}";
+}
+template <typename K, typename V>
+void show_val(multimap<K, V> t)
+{
+    cerr << "{";
+    bool f = false;
+    for (auto &x : t)
+    {
+        if (f)
+            cerr << ", ";
+        f = true;
+        show_val(x);
+    }
+    cerr << "}";
+}
+template <typename K, typename V>
+void show_val(unordered_map<K, V> t)
+{
+    cerr << "{";
+    bool f = false;
+    for (auto &x : t)
+    {
+        if (f)
+            cerr << ", ";
+        f = true;
+        show_val(x);
+    }
+    cerr << "}";
+}
+template <typename T>
+void show_val(deque<T> t)
+{
+    cerr << "{";
+    bool f = false;
+    for (auto &x : t)
+    {
+        if (f)
+            cerr << ", ";
+        f = true;
+        show_val(x);
+    }
+    cerr << "}";
+}
+template <typename T>
+void show_val(vector<T> t)
+{
+    cerr << "{";
+    bool f = false;
+    for (auto &x : t)
+    {
+        if (f)
+            cerr << ", ";
+        f = true;
+        show_val(x);
+    }
+    cerr << "}";
+}
+template <typename T, size_t N>
+void show_val(array<T,N> t)
+{
+    cerr << "{";
+    bool f = false;
+    for (auto &x : t)
+    {
+        if (f)
+            cerr << ", ";
+        f = true;
+        show_val(x);
+    }
+    cerr << "}";
+}
+template <typename T>
+void show_val(valarray<T> t)
 {
     cerr << "{";
     bool f = false;
@@ -173,6 +319,16 @@ void show_val(priority_queue<T> q)
             cerr << ", ";
     }
     cout << "}";
+}
+
+//! Other types
+template<typename T>
+void show_val(T t)
+{
+    t = t;
+    setTextColor(RED);
+    cerr << "Unsupported-type";
+    setTextColor(WHITE);
 }
 
 int extract_comma_after_first_variable(string s)

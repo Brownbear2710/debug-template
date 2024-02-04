@@ -12,6 +12,13 @@ download the `Dbug.h` file and place it in the desired folder. Include `Dbug.h` 
 #include<bits/stdc++.h>
 #include "Dbug.h"
 
+class MyClass{
+    public:
+        int n;
+    private:
+        void foo(){}
+};
+
 int main()
 {
     vector<int> v = {1,2,3,1,9};
@@ -23,6 +30,8 @@ int main()
     vector<pair<int,int>> vp = {{1,2}, {3,4}, {5,6}};
     dbg(c,s,vp);
     
+    pair<int, MyClass> p = {1, MyClass{2}};
+    dbg(p);
     return 0;
 }
 ```
@@ -30,13 +39,15 @@ int main()
 <b>Output:</b><br>
 
 ```txt
-Line 8:
+Line 15:
         v = {1, 2, 3, 1, 9}
         n = 2
-Line 13:
+Line 20:
         c = 'a'
         s = "Bangladesh"
         vp = {{1, 2}, {3, 4}, {5, 6}}
+Line 23:
+        p = {1, Unsupported-type}
 ```
 
 > Note: `dbg(...)` supports variable number of arguments. Some classes might not be supported. It does not support custom class and structure.<br>
@@ -73,7 +84,6 @@ The following types are supported where `T`, `K` and `V` can be replaced with an
 25. vector<T>
 26. valarray<T>
 27. pair<T1,T2>
-+ Any datatype<T> that supports foreach loop.
 ```
 ## Issues
 None till now.

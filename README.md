@@ -87,5 +87,3 @@ The following types are supported where `T`, `K` and `V` can be replaced with an
 28. pair<T1,T2>
 29. tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> [a.k.a ordered_set<T>]
 ```
-## Issues
-None till now.

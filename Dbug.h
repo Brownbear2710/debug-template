@@ -1,5 +1,8 @@
 #include <bits/stdc++.h>
+#include "ext/pb_ds/assoc_container.hpp"
+#include "ext/pb_ds/tree_policy.hpp"
 
+using namespace __gnu_pbds;
 using namespace std;
 using ll = long long;
 
@@ -253,6 +256,20 @@ void show_val(array<T,N> t)
 }
 template <typename T>
 void show_val(valarray<T> t)
+{
+    cerr << "{";
+    bool f = false;
+    for (auto &x : t)
+    {
+        if (f)
+            cerr << ", ";
+        f = true;
+        show_val(x);
+    }
+    cerr << "}";
+}
+template<class T>
+void show_val(tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> t)
 {
     cerr << "{";
     bool f = false;

@@ -84,6 +84,7 @@ The following types are supported where `T`, `K` and `V` can be replaced with an
 25. vector<T>
 26. valarray<T>
 27. pair<T1,T2>
+28. tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> [a.k.a ordered_set<T>]
 ```
 ## Issues
 None till now.

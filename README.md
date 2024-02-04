@@ -65,26 +65,27 @@ The following types are supported where `T`, `K` and `V` can be replaced with an
 6. long double
 7. float
 8. char
-9. const char []
-10. const T []
-11. set<T>
+9. unsigned char
+10. const char []
+11. const T []
 12. multiset<T>
 13. map<K,V>
 14. multimap<K,V>
-15. stack<T>
+15. set<T>
 16. queue<T>
-17. unordered_map<K,V>
+17. stack<T>
 18. unordered_set<K,V>
-19. priority_queue<T>
-20. deque<T>
-21. complex<T>
-22. tuple<T1,T2,...>
-23. string
-24. array<T>
-25. vector<T>
-26. valarray<T>
-27. pair<T1,T2>
-28. tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> [a.k.a ordered_set<T>]
+19. unordered_map<K,V>
+20. priority_queue<T>
+21. deque<T>
+22. complex<T>
+23. tuple<T1,T2,...>
+24. string
+25. array<T>
+26. vector<T>
+27. valarray<T>
+28. pair<T1,T2>
+29. tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> [a.k.a ordered_set<T>]
 ```
 ## Issues
 None till now.

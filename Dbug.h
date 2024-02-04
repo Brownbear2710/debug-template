@@ -32,6 +32,7 @@ void setTextColor(Color color)
 
 void show_val(string s) { cerr << "\"" << s << "\""; }
 void show_val(char c) { cerr << "\'" << c << "\'"; }
+void show_val(unsigned char c) { cerr << "\'" << c << "\'"; }
 void show_val(int i) { cerr << i; }
 void show_val(bool i) { cerr << i; }
 void show_val(unsigned int i) { cerr << i; }

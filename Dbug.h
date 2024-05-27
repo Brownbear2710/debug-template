@@ -12,7 +12,7 @@ using ll = long long;
 #include <windows.h> // for win32 API functions
 enum Color
 {
-    BLACK, RESET = 7, GREY = 8, BLUE, GREEN, CYAN, RED, PURPLE, LIGHT_YELLOW, WHITE
+    BLACK, RESET = 7, GREY, BLUE, GREEN, CYAN, RED, PURPLE, LIGHT_YELLOW, WHITE
 };
 void setTextColor(Color color)
 {
@@ -86,11 +86,13 @@ void show_val(tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_nod
 template <typename T>
 void show_val(complex<T> c)
 {
-    cerr << "{";
+    cerr << "";
     show_val(c.real());
-    cerr << ", ";
+    setTextColor(RED);
+    cerr << "+";
+    setTextColor(WHITE);
     show_val(c.imag());
-    cerr << "}";
+    cerr << "i";
 }
 
 //! Tuple
@@ -100,7 +102,7 @@ struct TuplePrinter
     static void print(Tuple t)
     {
         TuplePrinter<Tuple, N - 1>::print(t);
-        std::cout << ", ";
+        std::cerr << ", ";
         show_val(get<N - 1>(t));
     }
 };
@@ -370,13 +372,21 @@ void dbo(string s) {s = s;/* Getting rid of warnings*/}
 template <typename T, typename... Args>
 void dbo(string s, T &t, Args &...args)
 {
-    auto it = remove(s.begin(), s.end(), ' ');
-    s.erase(it, s.end());
+    // auto it = remove(s.begin(), s.end(), ' ');
+    // s.erase(it, s.end());
     int c_pos = extract_comma_after_first_variable(s);
     setTextColor(CYAN);
-    cerr << "\t" << s.substr(0, c_pos);
+    string out = s.substr(0, c_pos);
+    while(out.back() == ' ') out.pop_back();
+    cerr << "\t";
+    if(out.size() == 0 or out[0] != '"' or out.back() != '"')
+    {
+        cerr << out;
+        setTextColor(WHITE);
+        cerr << " = ";
+    }
     setTextColor(WHITE);
-    cerr << " = ";
+    while((size_t)c_pos+1 < s.size() and s[c_pos+1] == ' ') c_pos++;
     s = s.substr(c_pos + (c_pos < (int)s.size()));
     show_val(t);
     cerr << endl;
@@ -386,13 +396,21 @@ void dbo(string s, T &t, Args &...args)
 template <typename T, typename... Args>
 void dbo(string s, T &&t, Args &&...args)
 {
-    auto it = remove(s.begin(), s.end(), ' ');
-    s.erase(it, s.end());
+    // auto it = remove(s.begin(), s.end(), ' ');
+    // s.erase(it, s.end());
     int c_pos = extract_comma_after_first_variable(s);
     setTextColor(CYAN);
-    cerr << "\t" << s.substr(0, c_pos);
+    string out = s.substr(0, c_pos);
+    while(out.back() == ' ') out.pop_back();
+    cerr << "\t";
+    if(out.size() == 0 or out[0] != '"' or out.back() != '"')
+    {
+        cerr << out;
+        setTextColor(WHITE);
+        cerr << " = ";
+    }
     setTextColor(WHITE);
-    cerr << " = ";
+    while((size_t)c_pos+1 < s.size() and s[c_pos+1] == ' ') c_pos++;
     s = s.substr(c_pos + (c_pos < (int)s.size()));
     show_val(t);
     cerr << endl;

@@ -5,7 +5,7 @@
 A `C++` header file to easily print the variables with one function.
 
 ## How to use
-download the `Dbug.h` file and place it in the desired folder. Include `Dbug.h` in the file where you want to use it. If you want to print a variable `v`, write `dbg(v)` where you want to print it. <br>
+Download the `Dbug.h` file and place it in the desired folder. Include `Dbug.h` in the file where you want to use it. If you want to print a variable `v`, write `dbg(v)` where you want to print it. The variable will be printed in `stderr` buffer. <br>
 <b>Sample Code:</b><br>
 
 ```cpp

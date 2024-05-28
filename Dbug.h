@@ -82,6 +82,19 @@ void show_val(valarray<T> t);
 template<class T>
 void show_val(tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> t);
 
+void print_opening()
+{
+    setTextColor(CYAN);
+    cerr << "[";
+    setTextColor(WHITE);
+}
+void print_closing()
+{
+    setTextColor(CYAN);
+    cerr << "]";
+    setTextColor(WHITE);
+}
+
 //! Complex
 template <typename T>
 void show_val(complex<T> c)
@@ -114,29 +127,29 @@ struct TuplePrinter<Tuple, 1>
 template <typename... Args>
 void show_val(const std::tuple<Args...> &t)
 {
-    cerr << "{";
+    print_opening();
     TuplePrinter<decltype(t), sizeof...(Args)>::print(t);
-    cerr << "}";
+    print_closing();
 }
 
 //! Range based
 template <typename T, size_t N>
 void show_val(const T (&t)[N])
 {
-    cerr << "{";
+    print_opening();
     for (size_t i = 0; i < N; i++)
     {
         show_val(t[i]);
         if (i + 1 < N)
             cerr << ", ";
     }
-    cerr << "}";
+    print_closing();
 }
 //! "foreach" loop
 template <typename T>
 void show_val(set<T> t)
 {
-    cerr << "{";
+    print_opening();
     bool f = false;
     for (auto &x : t)
     {
@@ -145,12 +158,12 @@ void show_val(set<T> t)
         f = true;
         show_val(x);
     }
-    cerr << "}";
+    print_closing();
 }
 template <typename T>
 void show_val(unordered_set<T> t)
 {
-    cerr << "{";
+    print_opening();
     bool f = false;
     for (auto &x : t)
     {
@@ -159,12 +172,12 @@ void show_val(unordered_set<T> t)
         f = true;
         show_val(x);
     }
-    cerr << "}";
+    print_closing();
 }
 template <typename T>
 void show_val(multiset<T> t)
 {
-    cerr << "{";
+    print_opening();
     bool f = false;
     for (auto &x : t)
     {
@@ -173,12 +186,12 @@ void show_val(multiset<T> t)
         f = true;
         show_val(x);
     }
-    cerr << "}";
+    print_closing();
 }
 template <typename K, typename V>
 void show_val(map<K, V> t)
 {
-    cerr << "{";
+    print_opening();
     bool f = false;
     for (auto &x : t)
     {
@@ -187,12 +200,12 @@ void show_val(map<K, V> t)
         f = true;
         show_val(x);
     }
-    cerr << "}";
+    print_closing();
 }
 template <typename K, typename V>
 void show_val(multimap<K, V> t)
 {
-    cerr << "{";
+    print_opening();
     bool f = false;
     for (auto &x : t)
     {
@@ -201,12 +214,12 @@ void show_val(multimap<K, V> t)
         f = true;
         show_val(x);
     }
-    cerr << "}";
+    print_closing();
 }
 template <typename K, typename V>
 void show_val(unordered_map<K, V> t)
 {
-    cerr << "{";
+    print_opening();
     bool f = false;
     for (auto &x : t)
     {
@@ -215,12 +228,12 @@ void show_val(unordered_map<K, V> t)
         f = true;
         show_val(x);
     }
-    cerr << "}";
+    print_closing();
 }
 template <typename T>
 void show_val(deque<T> t)
 {
-    cerr << "{";
+    print_opening();
     bool f = false;
     for (auto &x : t)
     {
@@ -229,12 +242,12 @@ void show_val(deque<T> t)
         f = true;
         show_val(x);
     }
-    cerr << "}";
+    print_closing();
 }
 template <typename T>
 void show_val(vector<T> t)
 {
-    cerr << "{";
+    print_opening();
     bool f = false;
     for (auto &x : t)
     {
@@ -243,12 +256,12 @@ void show_val(vector<T> t)
         f = true;
         show_val(x);
     }
-    cerr << "}";
+    print_closing();
 }
 template <typename T, size_t N>
 void show_val(array<T,N> t)
 {
-    cerr << "{";
+    print_opening();
     bool f = false;
     for (auto &x : t)
     {
@@ -257,12 +270,12 @@ void show_val(array<T,N> t)
         f = true;
         show_val(x);
     }
-    cerr << "}";
+    print_closing();
 }
 template <typename T>
 void show_val(valarray<T> t)
 {
-    cerr << "{";
+    print_opening();
     bool f = false;
     for (auto &x : t)
     {
@@ -271,12 +284,12 @@ void show_val(valarray<T> t)
         f = true;
         show_val(x);
     }
-    cerr << "}";
+    print_closing();
 }
 template<class T>
 void show_val(tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> t)
 {
-    cerr << "{";
+    print_opening();
     bool f = false;
     for (auto &x : t)
     {
@@ -285,25 +298,25 @@ void show_val(tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_nod
         f = true;
         show_val(x);
     }
-    cerr << "}";
+    print_closing();
 }
 
 //! Pair
 template <typename T, typename V>
 void show_val(pair<T, V> p)
 {
-    cerr << "{";
+    print_opening();
     show_val(p.first);
     cerr << ", ";
     show_val(p.second);
-    cerr << "}";
+    print_closing();
 };
 
 //! queue
 template <typename T>
 void show_val(queue<T> q)
 {
-    cerr << "{";
+    print_opening();
     for (; q.size();)
     {
         show_val(q.front());
@@ -311,14 +324,14 @@ void show_val(queue<T> q)
         if (q.size())
             cerr << ", ";
     }
-    cout << "}";
+    print_closing();
 }
 
 //! stack
 template <typename T>
 void show_val(stack<T> q)
 {
-    cerr << "{";
+    print_opening();
     for (; q.size();)
     {
         show_val(q.top());
@@ -326,13 +339,13 @@ void show_val(stack<T> q)
         if (q.size())
             cerr << ", ";
     }
-    cout << "}";
+    print_closing();
 }
 //! Priority Queue
 template <typename T>
 void show_val(priority_queue<T> q)
 {
-    cerr << "{";
+    print_opening();
     for (; q.size();)
     {
         show_val(q.top());
@@ -340,7 +353,7 @@ void show_val(priority_queue<T> q)
         if (q.size())
             cerr << ", ";
     }
-    cout << "}";
+    print_closing();
 }
 
 //! Other types

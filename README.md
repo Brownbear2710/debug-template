@@ -40,14 +40,14 @@ int main()
 
 ```txt
 Line 15:
-        v = {1, 2, 3, 1, 9}
+        v = [1, 2, 3, 1, 9]
         n = 2
 Line 20:
         c = 'a'
         s = "Bangladesh"
-        vp = {{1, 2}, {3, 4}, {5, 6}}
+        vp = [[1, 2], [3, 4], [5, 6]]
 Line 23:
-        p = {1, Unsupported-type}
+        p = [1, Unsupported-type] 
 ```
 
 > Note: `dbg(...)` supports variable number of arguments. Some classes might not be supported. It does not support custom class and structure.<br>

@@ -86,5 +86,6 @@ The following types are supported where `T`, `K` and `V` can be replaced with an
 27. valarray<T>
 28. pair<T1,T2>
 29. multiset<T>
-30. tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> [a.k.a ordered_set<T>]
+30. bitset<N>
+31. tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> [a.k.a ordered_set<T>]
 ```

@@ -42,7 +42,11 @@ void show_val(long double i) { cerr << i; }
 void show_val(long long i) { cerr << i; }
 void show_val(unsigned long long i) { cerr << i; }
 void show_val(const char *p) { cerr << "\"" << p << "\""; }
+void show_val(const unsigned char *p) { cerr << "\"" << p << "\""; }
 void show_val(char *p) { cerr << "\"" << p << "\""; }
+void show_val(unsigned char *p) { cerr << "\"" << p << "\""; }
+void show_val(__int128_t i);
+void show_val(__uint128_t i);
 template <typename T, typename V>
 void show_val(pair<T, V> p);
 template <typename T>
@@ -93,6 +97,27 @@ void print_closing()
     setTextColor(CYAN);
     cerr << "]";
     setTextColor(WHITE);
+}
+
+//! __int128_t
+void show_val(__int128_t i)
+{
+    bool neg =  i < 0 ? true : false;
+    if(neg) i = -i;
+    string s = "";
+    while(i) {s += char('0' + i%10); i /= 10;}
+    if(!s.size()) s = "0";
+    reverse(s.begin(), s.end());
+    cerr << (neg ? "-" : "") << s;
+}
+//! __uint128_t
+void show_val(__uint128_t i)
+{
+    string s = "";
+    while(i) {s += char('0' + i%10); i /= 10;}
+    if(!s.size()) s = "0";
+    reverse(s.begin(), s.end());
+    cerr << s;
 }
 
 //! Complex

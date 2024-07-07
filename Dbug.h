@@ -47,6 +47,8 @@ void show_val(char *p) { cerr << "\"" << p << "\""; }
 void show_val(unsigned char *p) { cerr << "\"" << p << "\""; }
 void show_val(__int128_t i);
 void show_val(__uint128_t i);
+template <size_t N>
+void show_val(bitset<N> b) { cerr << b; }
 template <typename T, typename V>
 void show_val(pair<T, V> p);
 template <typename T>

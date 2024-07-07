@@ -66,9 +66,9 @@ The following types are supported where `T`, `K` and `V` can be replaced with an
 7. float
 8. char
 9. unsigned char
-10. const char []
-11. const T []
-12. multiset<T>
+10. __int128_t
+11. const char []
+12. const T []
 13. map<K,V>
 14. multimap<K,V>
 15. set<T>
@@ -85,5 +85,6 @@ The following types are supported where `T`, `K` and `V` can be replaced with an
 26. vector<T>
 27. valarray<T>
 28. pair<T1,T2>
-29. tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> [a.k.a ordered_set<T>]
+29. multiset<T>
+30. tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update> [a.k.a ordered_set<T>]
 ```

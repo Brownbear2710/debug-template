@@ -66,7 +66,7 @@ The following types are supported where `T`, `K` and `V` can be replaced with an
 7. float
 8. char
 9. unsigned char
-10. __int128_t
+10. __int128_t, __uint128_t
 11. const char []
 12. const T []
 13. map<K,V>
